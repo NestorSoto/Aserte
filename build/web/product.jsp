@@ -4,6 +4,8 @@
     Author     : User
 --%>
 
+<%@page import="com.modelo.ProductoDAO"%>
+<%@page import="com.modelo.Producto"%>
 <%@page import="view.Usuario"%>
 <%@page import="cad.UsuarioCad"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Aserté | Inicio Sesion</title>
+        <title>Aserté | Add</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity= "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
         <link href="css/estilos.css" rel="stylesheet" type="txt/css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -40,49 +42,70 @@
                     </li>
                 </ul>
 
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
                 <ul class="navbar-nav" >
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Cuenta
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Usuarios.php">Iniciar Sesion</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">${user}</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="administracion.jsp"><i class="fas fa-user-edit"></i> ${user}</a>
+                    </li>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="container col-4 margin-1">
-            <h3> texto</h3>
-            <p>
-                tvbjnkfghnjkml,cgvhnkml,ñ.
-            </p>
+            <form>
+                <h3>Añadir Productos</h3>
+                <hr>
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">Nombre de producto</label>
+                    <input type="text"  name="campoNombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Foto(URL)</label>
+                    <input type="text"  name="campoFoto" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Descripcion</label>
+                    <input type="text"  name="campoDescripcion" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Precio</label>
+                    <input type="number"  name="campoPrecio" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Stock</label>
+                    <input type="number"  name="campoStock" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-success" name="btnIngresar" value="Añadir producto" id="button">
+                </div>
+
+
+            </form>
         </div>
+
         <%
-             String nombre, contra;
-             Usuario cliente;
-             HttpSession sesion = request.getSession();
+            String nombre, descrip, foto;
+            int precio,stock;
+            Usuario cliente;
+            HttpSession sesion = request.getSession();
             if (request.getParameter("btnIngresar") != null) {
-                nombre = request.getParameter("campoUsuario");
-                contra = request.getParameter("campoContrasenia");
-                if(UsuarioCad.usuarioExiste(nombre, contra)){
-                    cliente = UsuarioCad.obtenerUsuario(nombre);
-                    sesion.setAttribute("user", cliente.getUsuario());
-                    response.sendRedirect("index.jsp");
-                }else{
-                    out.print(" el usuario no existe");
-                }
-            }else{
+                nombre = request.getParameter("campoNombre");
+                descrip = request.getParameter("campoDescripcion");
+                foto= request.getParameter("campoFoto");
+                precio=Integer.parseInt(request.getParameter("campoPrecio").toString());
+                stock=Integer.parseInt(request.getParameter("campoStock").toString());
+                ProductoDAO.add(nombre, foto, descrip, precio, stock);
+                response.sendRedirect("Controlador?accion=home");
+            } else {
                 
-            }   
-            
+
+            }
+
         %>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
