@@ -1,3 +1,3 @@
 <?php 
- header('location: web/index.jsp' );
+ header('location: web/index.jsp');
 ?>
