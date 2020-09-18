@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg bg-light"style="background-color: #e3f2fd;"><%-- cambiar ligth por otro color--%>
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="img/Logo.png" width="150" height="40"/>
+                    <img src="../web/img/Logo.png" width="150" height="40"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <ion-icon name="menu-outline"></ion-icon>
@@ -93,14 +93,14 @@
 
                             <div class="carousel-inner">
                                 <div class="item active">                            
-                                    <img src="img/banner.jpg" class="girl img-responsive" alt="" width="1230" height="400"/>                            
+                                    <img src="../web/img/banner.jpg" class="girl img-responsive" alt="" width="1230" height="400"/>                            
                                 </div>
                                 <div class="item">
-                                    <img src="imag/banner.jpg" class="girl img-responsive" alt="" />          
+                                    <img src="../web/imag/banner.jpg" class="girl img-responsive" alt="" />          
                                 </div>
 
                                 <div class="item">
-                                    <img src="imag/portadav3.jpg" class="girl img-responsive" alt="" />          
+                                    <img src="../web/imag/portadav3.jpg" class="girl img-responsive" alt="" />          
                                 </div>
 
                             </div>
