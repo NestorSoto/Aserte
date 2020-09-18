@@ -1,1 +1,3 @@
-<?php require_once("index.jsp")?>
+<?php 
+ header('location: web/index.jsp' );
+?>
