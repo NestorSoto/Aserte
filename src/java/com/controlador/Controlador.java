@@ -133,7 +133,7 @@ public class Controlador extends HttpServlet {
 
                 }
                 request.setAttribute("totalPagar", totalPagar);
-                request.getRequestDispatcher("carrito.jsp").forward(request, response);
+                request.getRequestDispatcher("../web/carrito.jsp").forward(request, response);
                 break;
             default:
                 request.setAttribute("productos", productos);
