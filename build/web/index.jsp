@@ -14,7 +14,7 @@
         <script src="https://kit.fontawesome.com/7d4952ef47.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-light"style="background-color: #e3f2fd;"><%-- cambiar ligth por otro color--%>
+        <nav class="navbar navbar-expand-lg bg-light"style="background-color: #e3f2fd;">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="../web/img/Logo.png" width="150" height="40"/>
