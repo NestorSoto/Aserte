@@ -52,8 +52,8 @@
                                 <% if (session.getAttribute("user") == null) {
                                     } else {
                                 %>
-                                <a class="dropdown-item" href="administracion.jsp"><i class="fas fa-user-edit"></i> ${user}</a>
-                                <a class="dropdown-item" href="CerrarSesion.jsp"><i class="fas fa-sign-out-alt"></i> Cerrar Session</a>
+                                <a class="dropdown-item" href="../web/administracion.jsp"><i class="fas fa-user-edit"></i> ${user}</a>
+                                <a class="dropdown-item" href="../web/CerrarSesion.jsp"><i class="fas fa-sign-out-alt"></i> Cerrar Session</a>
 
                                 <%
                                     }
@@ -63,7 +63,7 @@
                                     } else {
                                 %>
                                 </a>
-                                <a class="dropdown-item" href="inicioSesion.jsp"> Iniciar Sesion</a>
+                                <a class="dropdown-item" href="..web/inicioSesion.jsp"> Iniciar Sesion</a>
 
                                 <%
                                     }
